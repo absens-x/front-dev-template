@@ -1,22 +1,18 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-
+const path = require("path");
 
 module.export = ({ mode = "development"}) => {
-
+    
     const isProd = mode === "production";
     const isDev = mode === "development";
-
-    const generateTemplate = (template, filename = template, title = template) => {
-        return {
-            title: title,
-            template: `${PATHS.src}/views/${template}.pug`,
-            filename: `${PATHS.dist}/${filename}.html`,
-            cache: true
-        }
+    const PATHS = {
+        dist: path.resolve(__dirname, 'dist'),
+        src: path.resolve(__dirname, 'src'),
     }
 
     const getStyleLoaders = () => {
+
         return [
             isProd ? MiniCssExtractPlugin.loader : 'style-loader',
             {
@@ -33,9 +29,9 @@ module.export = ({ mode = "development"}) => {
     const getPlugins = () => {
         const plugins = [
             new HtmlWebpackPlugin({
-                template: 'public/index.html',
+                template: 'src/views/index.pug',
                 title: "Home",
-                buildTime: new Date().toLocaleString()
+                filename: 'dist/index.html'
             })
         ]
 
@@ -51,7 +47,6 @@ module.export = ({ mode = "development"}) => {
 
     
     return {
-
         mode: mode,
 
         output: {
