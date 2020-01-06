@@ -2,8 +2,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require("path");
 
-module.export = ({ mode = "development"}) => {
+module.exports = (env = {}) => {
     
+    const  { mode = "development" } = env;
     const isProd = mode === "production";
     const isDev = mode === "development";
     const PATHS = {
@@ -15,13 +16,13 @@ module.export = ({ mode = "development"}) => {
 
         return [
             isProd ? MiniCssExtractPlugin.loader : 'style-loader',
-            {
+            /* {
                 loader: 'postcss-loader',
                 options: {
                     sourceMap: true,
                     config: { path: 'postcss.config.js' }
                 }
-            },
+            }, */
             'css-loader'
         ]
     }
@@ -31,13 +32,13 @@ module.export = ({ mode = "development"}) => {
             new HtmlWebpackPlugin({
                 template: 'src/views/index.pug',
                 title: "Home",
-                filename: 'dist/index.html'
+                filename: 'index.html'
             })
         ]
 
         if(isProd) {
             plugins.push(new MiniCssExtractPlugin({
-                filename: 'style.[hash:10].css'
+                filename: 'css/style.[hash:10].css'
             }))
         }
 
@@ -50,7 +51,7 @@ module.export = ({ mode = "development"}) => {
         mode: mode,
 
         output: {
-            filename: isProd ? 'main-[hash:10].js' : undefined
+            filename: isProd ? 'js/main-[hash:10].js' : undefined
         },
 
         module: {
