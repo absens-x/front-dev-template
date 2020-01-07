@@ -16,14 +16,15 @@ module.exports = (env = {}) => {
 
         return [
             isProd ? MiniCssExtractPlugin.loader : 'style-loader',
-            /* {
+            'css-loader',
+            {
                 loader: 'postcss-loader',
                 options: {
                     sourceMap: true,
                     config: { path: 'postcss.config.js' }
                 }
-            }, */
-            'css-loader'
+            },
+            
         ]
     }
 
