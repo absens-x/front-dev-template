@@ -1,7 +1,10 @@
-module.exports = {
-	plugins: [
+module.exports = (env = {}) => {
+	
+	const { mode = "development" } = env;
+	const isProd = mode === "production";
+
+	const plugins = [
 		require('autoprefixer'),
-		require('cssnano'),
 		require('@lipemat/css-mqpacker')({
 			sort: true,
 			preset: [
@@ -12,7 +15,15 @@ module.exports = {
 				}
 			]
 		}),
-
 	]
+
+	if(isProd) {
+		plugins.push(require('cssnano'))
+	}
+	
+	return {
+		plugins: plugins
+	}
+	
 }
  

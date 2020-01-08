@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const fs = require('fs');
 const path = require("path");
 
 module.exports = (env = {}) => {
@@ -7,7 +8,7 @@ module.exports = (env = {}) => {
     const  { mode = "development" } = env;
     const isProd = mode === "production";
     const isDev = mode === "development";
-    const PATHS = {
+    const DIR_PATHS = {
         dist: path.resolve(__dirname, 'dist'),
         src: path.resolve(__dirname, 'src'),
     }
@@ -29,13 +30,20 @@ module.exports = (env = {}) => {
     }
 
     const getPlugins = () => {
-        const plugins = [
-            new HtmlWebpackPlugin({
-                template: 'src/views/index.pug',
-                title: "Home",
-                filename: 'index.html'
+        
+        const views = fs.readdirSync(`${DIR_PATHS.src}/views`).filter(filename => filename.endsWith('.pug'))
+
+        // Page generating plugin
+        
+        const plugins = views.map(view => {
+           return new HtmlWebpackPlugin({
+                template: `src/views/${view}`,
+                title: `${view.replace(/\.pug/, '')}`,
+                filename: `${view.replace(/\.pug/, '.html')}`
             })
-        ]
+        });
+        
+        // Style file plugin
 
         if(isProd) {
             plugins.push(new MiniCssExtractPlugin({
