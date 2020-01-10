@@ -11,8 +11,9 @@ html(lang="en")
         block style
         
     body
-        include ../utils/_mixins.pug
-
-        block content
+        include ../utils/_index.pug
         
-        include ../layouts/_footer.pug
+        
+        block content
+
+        +layout('footer')

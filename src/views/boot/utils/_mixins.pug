@@ -1,0 +1,15 @@
+mixin svg(svg_url, svg_id)
+  if svg_id
+    svg()&attributes(attributes)
+      use(xlink:href= svg_url + '#' + svg_id)
+  else
+    svg()&attributes(attributes)
+      use(xlink:href= svg_url)
+
+
+mixin layout(name)
+  case name
+    when 'header'
+      include ../layouts/_header.pug
+    when 'footer'
+      include ../layouts/_footer.pug

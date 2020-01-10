@@ -8,6 +8,7 @@ module.exports = (env = {}) => {
     const  { mode = "development" } = env;
     const isProd = mode === "production";
     const isDev = mode === "development";
+    
     const DIR_PATHS = {
         dist: path.resolve(__dirname, 'dist'),
         src: path.resolve(__dirname, 'src'),
