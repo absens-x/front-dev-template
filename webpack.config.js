@@ -1,6 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const ImageminPlugin = require('imagemin-webpack-plugin');
 const fs = require('fs');
 const path = require("path");
@@ -56,15 +57,21 @@ module.exports = (env = {}) => {
         // Style file plugin
 
         if(isProd) {
-            plugins.push(new MiniCssExtractPlugin({
-                filename: 'css/style.[hash:10].css'
-            }))
-            
-            plugins.push(new CopyWebpackPlugin([
-                { from: 'img/'},
-                { from: 'assets/'},
-            ]));
+            plugins.push(
+                new CleanWebpackPlugin(),
+                
+                new MiniCssExtractPlugin({
+                    filename: 'css/style.[hash:10].css'
+                }),
 
+                new CopyWebpackPlugin([
+                    { from: `${DIR_PATHS.src}/img`, to: 'img'},
+                    { from: `${DIR_PATHS.src}/fonts`, to: 'fonts'},
+                    { from: `${DIR_PATHS.src}/assets`, to: 'assets'},
+                ])
+            
+            )
+            
             // plugins.push(new ImageminPlugin({ test: /\.(jpe?g|png|gif|svg)$/i }))
         }
 
