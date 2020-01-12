@@ -1,0 +1,168 @@
+/* 
+******************************************************************
+* Media queries
+*********************************
+*/
+@mixin mq($type, $orientation: false) {
+    @if($type == 'xlarge') {
+        @media screen and (min-width: $screen_xl) {
+            @content;
+        }
+    }
+    @if ($type == 'large') {
+        @media screen and (min-width: $screen_lg) and (max-width: $screen_xl - 1) {
+            @content;
+        }
+    }
+    @else if ($type == 'medium') {
+        @media screen and (min-width: $screen_md) and (max-width: $screen_lg - 1) {
+            @content;
+        }
+    }
+    @else if ($type == 'medium' and $orientation) {
+        @media screen and (min-width: $screen_md) and (max-width: $screen_lg - 1) and (orientation: landscape) {
+            @content;
+        }
+    }
+    @else if ($type == 'small') {
+        @media screen and (min-width: $screen_sm) and (max-width: $screen_md - 1) {
+            @content;
+        }
+    }
+    @else if ($type == 'xsmall') {
+        @media screen and (min-width: $screen_xs) and (max-width: $screen_sm - 1) {
+            @content;
+        }
+    }
+    @else { @warn 'Error: Not found screen type'; }
+        
+}
+
+
+
+
+
+
+
+/* 
+******************************************************************
+* Clearfix
+*********************************
+*/
+@mixin clearfix {
+    *zoom: 1;
+  
+    &:before,
+    &:after {
+      content: '';
+      display: table;
+    }
+
+    &:after { clear: both; }
+}
+
+
+
+
+
+
+
+/* 
+******************************************************************
+* Responsive images
+*********************************
+*/
+@mixin img-responsive {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+
+
+
+
+
+
+/* 
+******************************************************************
+* Generate triangle shape
+*********************************
+*/
+@mixin shape_triangle($type, $size, $color) {
+    width: 0px;
+    height: 0px;
+    
+    @if $type == "up" {
+        border-left: $size solid transparent;
+        border-right: $size solid transparent;
+        border-bottom: $size solid $color;
+    }
+    @else if $type == "down" {
+        border-left: $size solid transparent;
+        border-right: $size solid transparent;
+        border-top: $size solid $color;
+    }
+    @else if $type == "left" {
+        border-top: $size solid transparent;
+        border-bottom: $size solid transparent;
+        border-right: $size solid $color;
+    }
+    @else if $type == "right" {
+        border-top: $size solid transparent;
+        border-bottom: $size solid transparent;
+        border-left: $size solid $color;
+    }
+}
+
+
+
+
+
+
+/* 
+******************************************************************
+* Disable text select option
+*********************************
+*/
+@mixin text-select-off {
+    user-select: none;
+}
+
+
+
+
+
+
+/* 
+******************************************************************
+* Toggle list style option
+*********************************
+*/
+@mixin toggle-list-style($flag: true) {
+    @if $flag {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    
+}
+
+
+
+
+
+/* 
+******************************************************************
+* Centering
+*********************************
+*/
+@mixin center-absolute {
+	position: absolute;
+	margin: auto;
+	top: 0;
+	left: 0;
+	bottom: 0;
+    right: 0;
+    height: 50%;
+}

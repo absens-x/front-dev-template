@@ -1,5 +1,100 @@
-// Breakpoints
-$screen_lg				: 1180px;
-$screen_md				: 992px;
-$screen_sm				: 768px - 1;
-$screen_xs				: 480px;
+// ******************************************************************
+// * Breakpoints
+// *********************************
+$screen_xl			    	    : 1281px;
+$screen_lg		    		    : 1025px;
+$screen_md			    	    : 768px;
+$screen_sm			    	    : 481px;
+$screen_xs			    	    : 320px;
+
+
+
+
+
+
+/*
+******************************************************************
+* Grid settings
+*********************************
+*/
+$grid_gutter                    : 15px;
+
+
+
+
+
+
+/*
+******************************************************************
+* Colors
+*********************************
+*/
+$color_dark                     : #222327;
+$color_dark_blue                : #2F3A56;
+$color_blue                     : #406D96;
+$color_light_blue_1             : #A6D1D8;
+$color_light_blue_2             : #D8E8E8;
+$color_red                      : #E2474B;
+
+
+$color_background               : $color_light_blue_2;
+
+
+$color_text                     : $color_dark;
+$color_text_select              : $color_blue;
+$color_link                     : $color_blue;
+
+
+$color_gradient_1               : linear-gradient(45deg, $color_red  0%, $color_dark_blue 100%);
+
+
+
+
+
+
+
+/*
+******************************************************************
+* Typography
+*********************************
+*/
+$font_family_sans_serif         : 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font_family_serif              : 'Palatino Linotype', 'Times New Roman', 'Times', 'Georgia',  serif;;
+
+
+$base_font_family               : $font_family_sans_serif;
+$base_font_size                 : 16px;
+$base_font_line_height          : 130%;
+
+
+$second_font_family             : Montserrat, Impact, sans-serif;
+$second_font_size               : 22px;
+$second_font_line_height        : 120%;
+
+
+
+
+
+
+
+/*
+******************************************************************
+* Elements settings
+*********************************
+*/
+$is_global_list_style_off       : true;
+
+
+
+
+
+
+
+/*
+******************************************************************
+* Z-indexes list
+*********************************
+*/
+$z_header                       : 7000;
+$z_footer                       : 6000;
+$z_modal                        : 9000;

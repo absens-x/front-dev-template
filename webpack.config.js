@@ -1,5 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ImageminPlugin = require('imagemin-webpack-plugin');
 const fs = require('fs');
 const path = require("path");
 
@@ -7,7 +9,6 @@ module.exports = (env = {}) => {
     
     const  { mode = "development" } = env;
     const isProd = mode === "production";
-    const isDev = mode === "development";
     
     const DIR_PATHS = {
         dist: path.resolve(__dirname, 'dist'),
@@ -18,7 +19,15 @@ module.exports = (env = {}) => {
 
         return [
             isProd ? MiniCssExtractPlugin.loader : 'style-loader',
-            'css-loader',
+            {
+                loader: 'css-loader',
+                options: {
+                    sourceMap: true,
+                }
+            },
+            {
+                loader: 'resolve-url-loader',
+            },
             {
                 loader: 'postcss-loader',
                 options: {
@@ -50,6 +59,13 @@ module.exports = (env = {}) => {
             plugins.push(new MiniCssExtractPlugin({
                 filename: 'css/style.[hash:10].css'
             }))
+            
+            plugins.push(new CopyWebpackPlugin([
+                { from: 'img/'},
+                { from: 'assets/'},
+            ]));
+
+            // plugins.push(new ImageminPlugin({ test: /\.(jpe?g|png|gif|svg)$/i }))
         }
 
         return plugins;
@@ -58,6 +74,8 @@ module.exports = (env = {}) => {
 
     
     return {
+        
+
         mode: mode,
 
         output: {
@@ -94,7 +112,11 @@ module.exports = (env = {}) => {
                 {
                     test: /\.(s[ca]ss)$/,
                     use: [
-                        ...getStyleLoaders(), 'sass-loader'
+                        ...getStyleLoaders(),
+                        {
+                            loader: 'sass-loader',
+                            options: {sourceMap: true}
+                        }
                     ]
                 },
 
@@ -125,6 +147,14 @@ module.exports = (env = {}) => {
         },
 
         plugins: getPlugins(),
+
+        devtool: 'source-map',
+        
+        devServer: {
+            overlay: true
+        },
+        
+        
     }
     
 }

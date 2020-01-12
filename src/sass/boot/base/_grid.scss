@@ -1,0 +1,27 @@
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+
+.container {
+    max-width: $screen_lg;
+    padding: 0 $grid_gutter;
+    margin: 0 auto;
+}
+
+
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -$grid_gutter;
+    margin-right: -$grid_gutter;
+}
+
+.row:before,
+.row:after {
+    content: " ";
+    display: table;
+}
