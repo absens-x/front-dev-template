@@ -42,10 +42,8 @@ module.exports = (env = {}) => {
 
     const getPlugins = () => {
         
-        const views = fs.readdirSync(`${DIR_PATHS.src}/views`).filter(filename => filename.endsWith('.pug'))
+        const views = fs.readdirSync(`${DIR_PATHS.src}/views`).filter(filename => filename.endsWith('.pug'));
 
-        // Page generating plugin
-        
         const plugins = views.map(view => {
            return new HtmlWebpackPlugin({
                 template: `src/views/${view}`,
@@ -54,7 +52,7 @@ module.exports = (env = {}) => {
             })
         });
         
-        // Style file plugin
+        
 
         if(isProd) {
             plugins.push(
