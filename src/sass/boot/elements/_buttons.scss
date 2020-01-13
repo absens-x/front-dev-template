@@ -1,0 +1,47 @@
+.btn {
+    display: inline-block;
+    background-color: transparent;
+    color: inherit;
+    text-decoration: none;
+    text-transform: uppercase;
+	border: none;
+    outline: none;
+    @include text-select-off;
+
+
+
+    
+/*
+******************************************************************
+* Buttons settings
+******************************************************************
+*/
+
+    // * Button themes 
+    &.btn--theme--dark {
+        background-color: $color_dark;
+        color: $color_white;
+    }
+
+    
+    
+    // * Button sizes
+    &.btn--size--md {}
+    &.btn--size--sm {}
+
+
+
+
+    // * Buttons list
+    &.btn-link {
+        text-decoration: none;
+    }
+
+    &.btn-submit {
+        
+    }
+
+    
+
+
+}

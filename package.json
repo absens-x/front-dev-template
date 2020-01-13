@@ -18,7 +18,8 @@
     "sass",
     "webpack",
     "pug",
-    "starter-template"
+    "starter-template",
+    "frontend layouts"
   ],
   "author": "Yusuf Gamkartiev",
   "license": "MIT",
