@@ -51,8 +51,12 @@ module.exports = (env = {}) => {
                 filename: `${view.replace(/\.pug/, '.html')}`
             })
         });
-        
-        
+
+        plugins.push(new CopyWebpackPlugin([
+            { from: `${DIR_PATHS.src}/img`, to: 'img'},
+            { from: `${DIR_PATHS.src}/fonts`, to: 'fonts'},
+            { from: `${DIR_PATHS.src}/assets`, to: 'assets'},
+        ]))
 
         if(isProd) {
             plugins.push(
@@ -60,17 +64,9 @@ module.exports = (env = {}) => {
                 
                 new MiniCssExtractPlugin({
                     filename: 'css/style.[hash:10].css'
-                }),
-
-                new CopyWebpackPlugin([
-                    { from: `${DIR_PATHS.src}/img`, to: 'img'},
-                    { from: `${DIR_PATHS.src}/fonts`, to: 'fonts'},
-                    { from: `${DIR_PATHS.src}/assets`, to: 'assets'},
-                ])
+                })
             
             )
-            
-            // plugins.push(new ImageminPlugin({ test: /\.(jpe?g|png|gif|svg)$/i }))
         }
 
         return plugins;
@@ -82,9 +78,8 @@ module.exports = (env = {}) => {
         
 
         mode: mode,
-
         output: {
-            filename: isProd ? 'js/main-[hash:10].js' : undefined
+            filename: isProd ? 'js/app.[hash:10].js' : undefined,
         },
 
         module: {
@@ -153,12 +148,10 @@ module.exports = (env = {}) => {
 
         plugins: getPlugins(),
 
-        devtool: 'source-map',
+        devtool: 'cheap-module-eval-source-map',
         
         devServer: {
             overlay: true,
-            contentBase: DIR_PATHS.dist,
-            publicPath: '/',
         },
         
         
