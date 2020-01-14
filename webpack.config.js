@@ -156,7 +156,9 @@ module.exports = (env = {}) => {
         devtool: 'source-map',
         
         devServer: {
-            overlay: true
+            overlay: true,
+            contentBase: DIR_PATHS.dist,
+            publicPath: '/',
         },
         
         
