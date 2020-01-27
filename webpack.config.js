@@ -46,16 +46,16 @@ module.exports = (env = {}) => {
 
         const plugins = views.map(view => {
            return new HtmlWebpackPlugin({
-                template: `src/views/${view}`,
+                template: `views/${view}`,
                 title: `${view.replace(/\.pug/, '')}`,
                 filename: `${view.replace(/\.pug/, '.html')}`
             })
         });
 
         plugins.push(new CopyWebpackPlugin([
-            { from: `${DIR_PATHS.src}/img`, to: 'img'},
-            { from: `${DIR_PATHS.src}/fonts`, to: 'fonts'},
-            { from: `${DIR_PATHS.src}/assets`, to: 'assets'},
+            { from: 'img', to: 'img'},
+            { from: 'fonts', to: 'fonts'},
+            { from: 'assets', to: 'assets'},
         ]))
 
         if(isProd) {
@@ -63,7 +63,7 @@ module.exports = (env = {}) => {
                 new CleanWebpackPlugin(),
                 
                 new MiniCssExtractPlugin({
-                    filename: 'css/style.[hash:10].css'
+                    filename: 'css/style.[contenthash].css'
                 })
             
             )
@@ -75,15 +75,18 @@ module.exports = (env = {}) => {
 
     
     return {
+        context: DIR_PATHS.src,
         
         mode: mode,
+
         entry: {
-            app: './src/js/index.js'
+            app: './js/index.js'
         },
 
         output: {
-            filename: isProd ? 'js/[name].[hash:10].js' : undefined,
-            path: DIR_PATHS.dist
+            filename: isProd ? 'js/[name].[contenthash].js' : undefined,
+            path: DIR_PATHS.dist,
+            publicPath: '/'
         },
 
         module: {
