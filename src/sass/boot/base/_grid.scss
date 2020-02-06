@@ -22,6 +22,7 @@
 
 .row:before,
 .row:after {
-    content: " ";
-    display: table;
+    content: "";
+    display: block;
+    clear: both;
 }
