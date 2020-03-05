@@ -9,7 +9,7 @@ $screen_md			    	    : 768px;
 $screen_sm			    	    : 481px;
 $screen_xs			    	    : 320px;
 
-$grid_gutter                    : 15px;
+$grid_gutter              : 15px;
 
 
 
@@ -59,6 +59,13 @@ $second_font_family             : Montserrat, Impact, sans-serif;
 $second_font_size               : 22px;
 $second_font_line_height        : 120%;
 
+$font_sizes: (
+  xs                            : 10,                   
+  sm                            : 12,
+  md                            : 16,
+  lg                            : 18,
+  xl                            : 24
+);
 
 
 
@@ -86,3 +93,4 @@ $is_global_list_style_off       : true;
 $z_header                       : 7000;
 $z_footer                       : 6000;
 $z_modal                        : 9000;
+$z_max                          : 10000;
