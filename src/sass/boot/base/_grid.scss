@@ -12,9 +12,11 @@
     outline: 1px solid red;
 }
 
-@include mq('large') {
-    max-width: 992px;
-}
+@include mq('xl') { .container { max-width: 1024px; } }
+@include mq('lg') { .container { max-width: 992px; } }
+@include mq('md') { .container { max-width: 750px; } }
+@include mq('sm') { .container { max-width: none; } }
+
 
 
 

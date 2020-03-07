@@ -11,32 +11,32 @@ xsmall - Smartphones Mobiles
 ******************************************************************
 */
 @mixin mq($type, $orientation: false) {
-    @if($type == 'xlarge') {
+    @if($type == 'xl') {
         @media screen and (min-width: $screen_xl) {
             @content;
         }
     }
-    @else if ($type == 'large') {
+    @else if ($type == 'lg') {
         @media screen and (min-width: $screen_lg) and (max-width: $screen_xl - 1) {
             @content;
         }
     }
-    @else if ($type == 'medium') {
+    @else if ($type == 'md') {
         @media screen and (min-width: $screen_md) and (max-width: $screen_lg - 1) {
             @content;
         }
     }
-    @else if ($type == 'medium' and $orientation) {
+    @else if ($type == 'md' and $orientation) {
         @media screen and (min-width: $screen_md) and (max-width: $screen_lg - 1) and (orientation: landscape) {
             @content;
         }
     }
-    @else if ($type == 'small') {
+    @else if ($type == 'sm') {
         @media screen and (min-width: $screen_sm) and (max-width: $screen_md - 1) {
             @content;
         }
     }
-    @else if ($type == 'xsmall') {
+    @else if ($type == 'xs') {
         @media screen and (min-width: $screen_xs) and (max-width: $screen_sm - 1) {
             @content;
         }

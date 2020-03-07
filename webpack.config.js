@@ -139,7 +139,7 @@ module.exports = (env = {}) => {
                     }]
                 },
 
-                // fonts
+                // Fonts
                 {
                     test: /\.(ttf|otf|eot|woff|woff2)$/,
                     use: [{
