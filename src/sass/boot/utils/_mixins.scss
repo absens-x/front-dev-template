@@ -1,6 +1,13 @@
 /* 
 ******************************************************************
 * Media queries
+
+xlarge - Desktops
+large - Desktops, Laptops 
+medium - Tablets, iPads
+small - Low Tablets, Mobiles 
+xsmall - Smartphones Mobiles 
+
 ******************************************************************
 */
 @mixin mq($type, $orientation: false) {
@@ -9,7 +16,7 @@
             @content;
         }
     }
-    @if ($type == 'large') {
+    @else if ($type == 'large') {
         @media screen and (min-width: $screen_lg) and (max-width: $screen_xl - 1) {
             @content;
         }
@@ -157,12 +164,17 @@
 * Centering
 ******************************************************************
 */
-@mixin center-absolute {
+@mixin abs-center {
 	position: absolute;
 	margin: auto;
 	top: 0;
 	left: 0;
 	bottom: 0;
     right: 0;
-    height: 50%;
+    min-height: 50%;
+}
+
+
+@mixin flex-center {
+	align-self: center;
 }

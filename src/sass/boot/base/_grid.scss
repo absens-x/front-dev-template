@@ -6,10 +6,16 @@
 
 
 .container {
-    max-width: $screen_lg;
+    max-width: $screen_default;
     padding: 0 $grid_gutter;
     margin: 0 auto;
+    outline: 1px solid red;
 }
+
+@include mq('large') {
+    max-width: 992px;
+}
+
 
 
 .row {

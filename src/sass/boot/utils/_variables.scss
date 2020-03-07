@@ -1,14 +1,17 @@
 /*
 ******************************************************************
-* Grid & Breakpoints
+* Grid & Breakpoints (specified min values of devices)
 ******************************************************************
 */
+
 $screen_xl			    	    : 1281px;
 $screen_lg		    		    : 1025px;
 $screen_md			    	    : 768px;
 $screen_sm			    	    : 481px;
 $screen_xs			    	    : 320px;
 
+
+$screen_default           : 1180px;
 $grid_gutter              : 15px;
 
 
