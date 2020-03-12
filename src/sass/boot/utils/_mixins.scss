@@ -2,10 +2,10 @@
 ******************************************************************
 * Media queries
 
-xlarge - Desktops
-large - Desktops, Laptops 
-medium - Tablets, iPads
-small - Low Tablets, Mobiles 
+xlarge(xl) - Desktops
+large(lg) - Desktops, Laptops 
+medium(md) - Tablets, iPads
+small(sm) - Low Tablets, Mobiles 
 xsmall - Smartphones Mobiles 
 
 ******************************************************************
@@ -17,39 +17,28 @@ xsmall - Smartphones Mobiles
         }
     }
     @else if ($type == 'lg') {
-        @media screen and (min-width: $screen_lg) and (max-width: $screen_xl - 1) {
-            @content;
-        }
+        @media screen and (min-width: $screen_lg) and (max-width: $screen_xl - 1) { @content; }
     }
+
     @else if ($type == 'md') {
-        @media screen and (min-width: $screen_md) and (max-width: $screen_lg - 1) {
-            @content;
-        }
+        @media screen and (min-width: $screen_md) and (max-width: $screen_lg - 1) { @content; }
     }
     @else if ($type == 'md' and $orientation) {
-        @media screen and (min-width: $screen_md) and (max-width: $screen_lg - 1) and (orientation: landscape) {
-            @content;
-        }
+        @media screen and (min-width: $screen_md) and (max-width: $screen_lg - 1) and (orientation: landscape) { @content; }
     }
+    
     @else if ($type == 'sm') {
-        @media screen and (min-width: $screen_sm) and (max-width: $screen_md - 1) {
-            @content;
-        }
+        @media screen and (min-width: $screen_sm) and (max-width: $screen_md - 1) { @content; }
     }
     @else if ($type == 'sm' and $orientation) {
-        @media screen and (min-width: $screen_sm) and (max-width: $screen_md - 1)  and (orientation: landscape) {
-            @content;
-        }
+        @media screen and (min-width: $screen_sm) and (max-width: $screen_md - 1)  and (orientation: landscape) { @content; }
     }
+    
     @else if ($type == 'xs') {
-        @media screen and (min-width: $screen_xs) and (max-width: $screen_sm - 1) {
-            @content;
-        }
+        @media screen and (min-width: $screen_xs) and (max-width: $screen_sm - 1) { @content; }
     }
     @else if ($type == 'xs' and $orientation) {
-        @media screen and (min-width: $screen_xs) and (max-width: $screen_sm - 1)  and (orientation: landscape) {
-            @content;
-        }
+        @media screen and (min-width: $screen_xs) and (max-width: $screen_sm - 1)  and (orientation: landscape) { @content; }
     }
     @else { @warn 'Error: Not found screen type'; }
         
