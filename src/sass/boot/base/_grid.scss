@@ -18,10 +18,10 @@
 @media screen and (max-width: $screen_lg - 1)
     { .container { max-width: 992px; } }
 
-    @media screen and (max-width: $screen_xm - 1)
+@media screen and (max-width: 834px)
     { .container { max-width: 768px; } }
 
-    @media screen and (max-width: $screen_md)
+@media screen and (max-width: $screen_md)
     { .container { max-width: 100%; } }
 
 

@@ -19,7 +19,8 @@ xsmall - Smartphones Mobiles
     @else if ($type == 'lg') {
         @media screen and (min-width: $screen_lg) and (max-width: $screen_xl - 1) { @content; }
     }
-
+    
+    // 
     @else if ($type == 'md') {
         @media screen and (min-width: $screen_md) and (max-width: $screen_lg - 1) { @content; }
     }
@@ -27,6 +28,7 @@ xsmall - Smartphones Mobiles
         @media screen and (min-width: $screen_md) and (max-width: $screen_lg - 1) and (orientation: landscape) { @content; }
     }
     
+    // 
     @else if ($type == 'sm') {
         @media screen and (min-width: $screen_sm) and (max-width: $screen_md - 1) { @content; }
     }
@@ -34,12 +36,20 @@ xsmall - Smartphones Mobiles
         @media screen and (min-width: $screen_sm) and (max-width: $screen_md - 1)  and (orientation: landscape) { @content; }
     }
     
+    // 
     @else if ($type == 'xs') {
         @media screen and (min-width: $screen_xs) and (max-width: $screen_sm - 1) { @content; }
     }
     @else if ($type == 'xs' and $orientation) {
         @media screen and (min-width: $screen_xs) and (max-width: $screen_sm - 1)  and (orientation: landscape) { @content; }
     }
+
+    // 
+     @else if ($type == 'iphonex') {
+        @media screen and (min-width: 375px) and (max-height: 812px) { @content; }
+    }
+   
+
     @else { @warn 'Error: Not found screen type'; }
         
 }
