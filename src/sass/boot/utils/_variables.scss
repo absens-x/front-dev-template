@@ -5,17 +5,17 @@ $screen_xl - default max-width for container
 ******************************************************************
 */
 
-$screen_xl			    	    : 1281px;
-$screen_lg		    		    : 1025px;
+$screen_xl			    	        : 1281px;
+$screen_lg		    		        : 1025px;
 
-$screen_md			    	    : 768px;
+$screen_md			    	        : 768px;
 
-$screen_sm			    	    : 481px;
-$screen_xs			    	    : 320px;
+$screen_sm			    	        : 481px;
+$screen_xs			    	        : 320px;
 
 
-$screen_default           : 1180px;
-$grid_gutter              : 15px;
+$screen_default               : 1180px;
+$grid_gutter                  : 15px;
 
 
 
@@ -65,14 +65,11 @@ $second_font_family             : Montserrat, Impact, sans-serif;
 $second_font_size               : 22px;
 $second_font_line_height        : 120%;
 
-$font_sizes: (
-  xs                            : 10,                   
-  sm                            : 12,
-  md                            : 16,
-  lg                            : 18,
-  xl                            : 24
-);
-
+$font_size_xs                   : 10px;                   
+$font_size_sm                   : 24px;
+$font_size_md                   : 32px;
+$font_size_lg                   : 48px;
+$font_size_xl                   : 56px;
 
 
 
