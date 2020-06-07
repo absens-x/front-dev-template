@@ -155,7 +155,7 @@ module.exports = (env = {}) => {
 
         plugins: getPlugins(),
 
-        devtool: 'cheap-module-eval-source-map',
+        devtool: isProd ? false : "inline-source-map",
 
         devServer: {
             overlay: true,

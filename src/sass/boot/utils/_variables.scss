@@ -14,8 +14,8 @@ $screen_sm			    	        : 481px;
 $screen_xs			    	        : 320px;
 
 
-$screen_default               : 1180px;
-$grid_gutter                  : 15px;
+$screen_default                     : 1180px;
+$gutter                             : 15px;
 
 
 
@@ -28,21 +28,22 @@ $grid_gutter                  : 15px;
 * Colors
 ******************************************************************
 */
-$color_dark                     : #222327;
-$color_dark_blue                : #2F3A56;
-$color_blue                     : #406D96;
-$color_light_blue_1             : #A6D1D8;
-$color_light_blue_2             : #D8E8E8;
-$color_red                      : #E2474B;
+$color_dark                     : #333A3C;
+$color_gray                     : #333A3C;
+$color_orange                   : #FF7B17;
+$color_blue                     : #0191B6;
+$color_light_blue               : #37BBCA;
+$color_red                      : rgb(211, 74, 33);
 
-$color_background               : $color_light_blue_2;
 
-$color_text                     : $color_dark;
+$gradient_blue                  : linear-gradient(99.32deg, $color_light_blue 0%, $color_blue 100%), #2A3032;
+$gradient_orange                : linear-gradient(99.32deg, $color_orange 0%, #EF5D1E 100%), #2A3032;
+
+
+$color_background               : #F8F5F3;
+$color_text_default             : $color_dark;
 $color_text_select              : $color_blue;
-$color_link                     : $color_blue;
-
-$color_gradient_1               : linear-gradient(45deg, $color_red  0%, $color_dark_blue 100%);
-
+$color_link                     : $color_light_blue;
 
 
 
@@ -65,7 +66,7 @@ $second_font_family             : Montserrat, Impact, sans-serif;
 $second_font_size               : 22px;
 $second_font_line_height        : 120%;
 
-$font_size_xs                   : 10px;                   
+$font_size_xs                   : 12px;                   
 $font_size_sm                   : 24px;
 $font_size_md                   : 32px;
 $font_size_lg                   : 48px;

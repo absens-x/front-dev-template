@@ -4,13 +4,14 @@
 ******************************************************************
 */
 @function size($cols, $margin: null) {
-    @if $margin == null {
-        @return calc(100% / 12 * #{$cols} - $gutter);
-    }
-    @else {
-        @return calc(100% / 12 * #{$cols} -  #{$margin + 'px'});
-    }
+  @if $margin == null {
+      @return calc(100% / 12 * #{$cols} - #{$gutter * 2});
+  }
+  @else {
+      @return calc(100% / 12 * #{$cols} -  #{$margin}px);
+  }
 }
+
 
 
 
@@ -24,14 +25,9 @@
 ******************************************************************
 */
 @function em($target, $context: $base_font_size) {
-    @if not unitless($target) {
-      $target: strip-units($target);
-    }
-    @if not unitless($context) {
-      $context: strip-units($context);
-    }
-    @if $target == 0 { @return 0 }
-    @return $target / $context + 0em;
+   
+  @if $target == 0 { @return 0 }
+  @return $target / $context + 0em;
 }
 
 
@@ -46,15 +42,10 @@
 ******************************************************************
 */
 @function rem($target, $context: $base_font_size) {
-    @if not unitless($target) {
-      $target: strip-units($target);
-    }
-    @if not unitless($context) {
-      $context: strip-units($context);
-    }
-    @if $target == 0 { @return 0 }
-    @return $target / $context + 0rem;
+  @if $target == 0 { @return 0 }
+  @return $target / $context + 0rem;
 }
+
 
 
 

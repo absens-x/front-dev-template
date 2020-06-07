@@ -10,7 +10,7 @@ body {
     font-size: $base_font_size;
     line-height: $base_font_line_height;
     background-color: $color_background;
-    color: $color_text;
+    color: $color_text_default;
     margin: 0;
 }
 
@@ -28,9 +28,12 @@ h6 {
     font-weight: bold;
 }
 
-h1 {font-size: 2rem;}
-h2 {font-size: 1.5rem;}
-h3 {font-size: 1.25rem;}
+h1 {font-size: rem($font_size_xl);}
+h2 {font-size: rem($font_size_lg);}
+h3 {font-size: rem($font_size_md);}
+h4 {font-size: rem($font_size_sm);}
+h5 {font-size: rem($font_size_xs);}
+h5 {font-size: rem($font_size_xs);}
 
 
 a {

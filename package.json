@@ -1,15 +1,15 @@
 {
-  "name": "front-dev-template",
+  "name": "layout-dev-template",
   "version": "1.0.0",
   "description": "Frontend starter",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --env.mode=production",
-    "dev": "webpack-dev-server "
+    "build": "webpack --env.mode=production ",
+    "dev": "webpack-dev-server --open"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/absens-x/front-dev-template.git"
+    "url": "git+https://github.com/absens-x/layout-dev-template.git"
   },
   "keywords": [
     "javascript",
@@ -56,9 +56,9 @@
     "webpack-dev-server": "^3.10.1"
   },
   "bugs": {
-    "url": "https://github.com/absens-x/front-dev-template/issues"
+    "url": "https://github.com/absens-x/layout-dev-template/issues"
   },
-  "homepage": "https://github.com/absens-x/front-dev-template#readme",
+  "homepage": "https://github.com/absens-x/layout-dev-template#readme",
   "dependencies": {
     "normalize.css": "^8.0.1"
   }

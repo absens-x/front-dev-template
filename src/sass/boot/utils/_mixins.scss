@@ -11,15 +11,30 @@ xsmall - Smartphones Mobiles
 ******************************************************************
 */
 @mixin mq($type, $orientation: false) {
+
+
+
+    // 
     @if($type == 'xl') {
         @media screen and (min-width: $screen_xl) {
             @content;
         }
     }
+
+
+    // 
     @else if ($type == 'lg') {
         @media screen and (min-width: $screen_lg) and (max-width: $screen_xl - 1) { @content; }
     }
+    @else if ($type == 'lg_max') {
+        @media screen and (max-width: $screen_lg) { @content; }
+    }
+    @else if ($type == 'lg_min') {
+        @media screen and (min-width: $screen_lg) { @content; }
+    }
     
+
+
     // 
     @else if ($type == 'md') {
         @media screen and (min-width: $screen_md) and (max-width: $screen_lg - 1) { @content; }
@@ -27,7 +42,15 @@ xsmall - Smartphones Mobiles
     @else if ($type == 'md' and $orientation) {
         @media screen and (min-width: $screen_md) and (max-width: $screen_lg - 1) and (orientation: landscape) { @content; }
     }
+    @else if ($type == 'md_max') {
+        @media screen and (max-width: $screen_md) { @content; }
+    }
+    @else if ($type == 'md_min') {
+        @media screen and (min-width: $screen_md) { @content; }
+    }
     
+
+
     // 
     @else if ($type == 'sm') {
         @media screen and (min-width: $screen_sm) and (max-width: $screen_md - 1) { @content; }
@@ -35,6 +58,11 @@ xsmall - Smartphones Mobiles
     @else if ($type == 'sm' and $orientation) {
         @media screen and (min-width: $screen_sm) and (max-width: $screen_md - 1)  and (orientation: landscape) { @content; }
     }
+    @else if ($type == 'sm_max') {
+        @media screen and (max-width: $screen_md - 1) { @content; }
+    }
+
+
     
     // 
     @else if ($type == 'xs') {
@@ -43,6 +71,7 @@ xsmall - Smartphones Mobiles
     @else if ($type == 'xs' and $orientation) {
         @media screen and (min-width: $screen_xs) and (max-width: $screen_sm - 1)  and (orientation: landscape) { @content; }
     }
+
 
     // 
      @else if ($type == 'iphonex') {
@@ -180,7 +209,7 @@ xsmall - Smartphones Mobiles
 	left: 0;
 	bottom: 0;
     right: 0;
-    min-height: 50%;
+    min-height: 1px;
 }
 
 
