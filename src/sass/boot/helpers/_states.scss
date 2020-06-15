@@ -1,7 +1,16 @@
 .visible {
-    display: block;
+    display: block !important;
 }
 
 .hidden {
     display: none !important;
 }
+
+@include mq('md_min') {
+    .hdn-md {
+        display: none !important;
+    }
+}
+
+.img-responsive {@include img-responsive;}
+.img-br-rd {border-radius: 4px;}
