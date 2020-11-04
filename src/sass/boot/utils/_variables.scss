@@ -1,100 +1,86 @@
 /*
 ******************************************************************
 * Grid & Breakpoints (specified min values of devices)
-$screen_xl - default max-width for container
+* $screen_xl - default max-width for container
 ******************************************************************
 */
 
-$screen_xl			    	        : 1281px;
-$screen_lg		    		        : 1025px;
+$screen_xl: 1281px;
+$screen_lg: 1025px;
 
-$screen_md			    	        : 768px;
+$screen_md: 768px;
 
-$screen_sm			    	        : 481px;
-$screen_xs			    	        : 320px;
+$screen_sm: 481px;
+$screen_xs: 320px;
 
-
-$screen_default                     : 1180px;
-$gutter                             : 15px;
-
-
-
-
-
-
+$screen_default: 1180px;
+$gutter: 15px;
 
 /*
 ******************************************************************
 * Colors
 ******************************************************************
 */
-$color_dark                     : #333A3C;
-$color_gray                     : #333A3C;
-$color_orange                   : #FF7B17;
-$color_blue                     : #0191B6;
-$color_light_blue               : #37BBCA;
-$color_red                      : rgb(211, 74, 33);
+$color_dark: #333a3c;
+$color_gray: #333a3c;
+$color_orange: #ff7b17;
+$color_blue: #0191b6;
+$color_light_blue: #37bbca;
+$color_red: rgb(211, 74, 33);
 
+$gradient_blue: linear-gradient(
+    99.32deg,
+    $color_light_blue 0%,
+    $color_blue 100%
+  ),
+  #2a3032;
+$gradient_orange: linear-gradient(99.32deg, $color_orange 0%, #ef5d1e 100%),
+  #2a3032;
 
-$gradient_blue                  : linear-gradient(99.32deg, $color_light_blue 0%, $color_blue 100%), #2A3032;
-$gradient_orange                : linear-gradient(99.32deg, $color_orange 0%, #EF5D1E 100%), #2A3032;
-
-
-$color_background               : #F8F5F3;
-$color_text_default             : $color_dark;
-$color_text_select              : $color_blue;
-$color_link                     : $color_light_blue;
-
-
-
-
-
+$color_background: #f8f5f3;
+$color_text_default: $color_dark;
+$color_text_select: $color_blue;
+$color_link: $color_light_blue;
 
 /*
 ******************************************************************
 * Typography
 ******************************************************************
 */
-$font_family_sans_serif         : 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-$font_family_serif              : 'Palatino Linotype', 'Times New Roman', 'Times', 'Georgia',  serif;;
+$font_family_sans_serif: "Roboto", "Helvetica Neue", Helvetica, Arial,
+  sans-serif;
+$font_family_serif: "Palatino Linotype", "Times New Roman", "Times", "Georgia",
+  serif;
 
-$base_font_family               : $font_family_sans_serif;
-$base_font_size                 : 16px;
-$base_font_line_height          : 130%;
+//---
+$base_font_family: $font_family_sans_serif;
+$base_font_size: 16px;
+$base_font_line_height: 130%;
 
-$second_font_family             : Montserrat, Impact, sans-serif;
-$second_font_size               : 22px;
-$second_font_line_height        : 120%;
+//---
+$second_font_family: Montserrat, Impact, sans-serif;
+$second_font_size: 22px;
+$second_font_line_height: 120%;
 
-$font_size_xs                   : 12px;                   
-$font_size_sm                   : 24px;
-$font_size_md                   : 32px;
-$font_size_lg                   : 48px;
-$font_size_xl                   : 56px;
-
-
-
-
+$font_size_xs: 12px;
+$font_size_sm: 24px;
+$font_size_md: 32px;
+$font_size_lg: 48px;
+$font_size_xl: 56px;
 
 /*
 ******************************************************************
 * Elements settings
 ******************************************************************
 */
-$is_global_list_style_off       : true;
-
-
-
-
-
-
+$is_global_list_style_off: true;
 
 /*
 ******************************************************************
 * Z-indexes list
 ******************************************************************
 */
-$z_header                       : 7000;
-$z_footer                       : 6000;
-$z_modal                        : 9000;
-$z_max                          : 10000;
+$z_header: 7000;
+$z_footer: 6000;
+$z_modal: 9000;
+$z_max: 10000;

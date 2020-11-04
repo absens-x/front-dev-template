@@ -2,92 +2,90 @@
 ******************************************************************
 * Media queries
 
-xlarge(xl) - Desktops
-large(lg) - Desktops, Laptops 
-medium(md) - Tablets, iPads
-small(sm) - Low Tablets, Mobiles 
-xsmall - Smartphones Mobiles 
-
+* xlarge(xl) - Desktops
+* large(lg) - Desktops, Laptops 
+* medium(md) - Tablets, iPads
+* small(sm) - Low Tablets, Mobiles 
+* xsmall - Smartphones Mobiles 
 ******************************************************************
 */
 @mixin mq($type, $orientation: false) {
-
-
-
-    // 
-    @if($type == 'xl') {
-        @media screen and (min-width: $screen_xl) {
-            @content;
-        }
+  //---
+  @if ($type == "xl") {
+    @media screen and (min-width: $screen_xl) {
+      @content;
     }
+  }
 
+  //---
+  @else if ($type == "lg") {
+    @media screen and (min-width: $screen_lg) and (max-width: $screen_xl - 1) {
+      @content;
+    }
+  } @else if ($type == "lg_max") {
+    @media screen and (max-width: $screen_lg) {
+      @content;
+    }
+  } @else if ($type == "lg_min") {
+    @media screen and (min-width: $screen_lg) {
+      @content;
+    }
+  }
 
-    // 
-    @else if ($type == 'lg') {
-        @media screen and (min-width: $screen_lg) and (max-width: $screen_xl - 1) { @content; }
+  //---
+  @else if ($type == "md") {
+    @media screen and (min-width: $screen_md) and (max-width: $screen_lg - 1) {
+      @content;
     }
-    @else if ($type == 'lg_max') {
-        @media screen and (max-width: $screen_lg) { @content; }
+  } @else if ($type == "md" and $orientation) {
+    @media screen and (min-width: $screen_md) and (max-width: $screen_lg - 1) and (orientation: landscape) {
+      @content;
     }
-    @else if ($type == 'lg_min') {
-        @media screen and (min-width: $screen_lg) { @content; }
+  } @else if ($type == "md_max") {
+    @media screen and (max-width: $screen_md) {
+      @content;
     }
-    
+  } @else if ($type == "md_min") {
+    @media screen and (min-width: $screen_md) {
+      @content;
+    }
+  }
 
+  //---
+  @else if ($type == "sm") {
+    @media screen and (min-width: $screen_sm) and (max-width: $screen_md - 1) {
+      @content;
+    }
+  } @else if ($type == "sm" and $orientation) {
+    @media screen and (min-width: $screen_sm) and (max-width: $screen_md - 1) and (orientation: landscape) {
+      @content;
+    }
+  } @else if ($type == "sm_max") {
+    @media screen and (max-width: $screen_md - 1) {
+      @content;
+    }
+  }
 
-    // 
-    @else if ($type == 'md') {
-        @media screen and (min-width: $screen_md) and (max-width: $screen_lg - 1) { @content; }
+  //---
+  @else if ($type == "xs") {
+    @media screen and (min-width: $screen_xs) and (max-width: $screen_sm - 1) {
+      @content;
     }
-    @else if ($type == 'md' and $orientation) {
-        @media screen and (min-width: $screen_md) and (max-width: $screen_lg - 1) and (orientation: landscape) { @content; }
+  } @else if ($type == "xs" and $orientation) {
+    @media screen and (min-width: $screen_xs) and (max-width: $screen_sm - 1) and (orientation: landscape) {
+      @content;
     }
-    @else if ($type == 'md_max') {
-        @media screen and (max-width: $screen_md) { @content; }
-    }
-    @else if ($type == 'md_min') {
-        @media screen and (min-width: $screen_md) { @content; }
-    }
-    
+  }
 
-
-    // 
-    @else if ($type == 'sm') {
-        @media screen and (min-width: $screen_sm) and (max-width: $screen_md - 1) { @content; }
+  //---
+  @else if ($type == "iphonex") {
+    @media screen and (min-width: 375px) and (max-height: 812px) {
+      @content;
     }
-    @else if ($type == 'sm' and $orientation) {
-        @media screen and (min-width: $screen_sm) and (max-width: $screen_md - 1)  and (orientation: landscape) { @content; }
-    }
-    @else if ($type == 'sm_max') {
-        @media screen and (max-width: $screen_md - 1) { @content; }
-    }
-
-
-    
-    // 
-    @else if ($type == 'xs') {
-        @media screen and (min-width: $screen_xs) and (max-width: $screen_sm - 1) { @content; }
-    }
-    @else if ($type == 'xs' and $orientation) {
-        @media screen and (min-width: $screen_xs) and (max-width: $screen_sm - 1)  and (orientation: landscape) { @content; }
-    }
-
-
-    // 
-     @else if ($type == 'iphonex') {
-        @media screen and (min-width: 375px) and (max-height: 812px) { @content; }
-    }
-   
-
-    @else { @warn 'Error: Not found screen type'; }
-        
+  } @else {
+    @warn 'Error: Not found screen type';
+  }
 }
-
-
-
-
-
-
 
 /* 
 ******************************************************************
@@ -95,22 +93,18 @@ xsmall - Smartphones Mobiles
 ******************************************************************
 */
 @mixin clearfix {
-    *zoom: 1;
-  
-    &:before,
-    &:after {
-      content: '';
-      display: block;
-    }
+  *zoom: 1;
 
-    &:after { clear: both; }
+  &:before,
+  &:after {
+    content: "";
+    display: block;
+  }
+
+  &:after {
+    clear: both;
+  }
 }
-
-
-
-
-
-
 
 /* 
 ******************************************************************
@@ -118,16 +112,11 @@ xsmall - Smartphones Mobiles
 ******************************************************************
 */
 @mixin img-responsive {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    height: auto;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
 }
-
-
-
-
-
 
 /* 
 ******************************************************************
@@ -135,35 +124,27 @@ xsmall - Smartphones Mobiles
 ******************************************************************
 */
 @mixin shape_triangle($type, $size, $color) {
-    width: 0px;
-    height: 0px;
-    
-    @if $type == "up" {
-        border-left: $size solid transparent;
-        border-right: $size solid transparent;
-        border-bottom: $size solid $color;
-    }
-    @else if $type == "down" {
-        border-left: $size solid transparent;
-        border-right: $size solid transparent;
-        border-top: $size solid $color;
-    }
-    @else if $type == "left" {
-        border-top: $size solid transparent;
-        border-bottom: $size solid transparent;
-        border-right: $size solid $color;
-    }
-    @else if $type == "right" {
-        border-top: $size solid transparent;
-        border-bottom: $size solid transparent;
-        border-left: $size solid $color;
-    }
+  width: 0px;
+  height: 0px;
+
+  @if $type == "up" {
+    border-left: $size solid transparent;
+    border-right: $size solid transparent;
+    border-bottom: $size solid $color;
+  } @else if $type == "down" {
+    border-left: $size solid transparent;
+    border-right: $size solid transparent;
+    border-top: $size solid $color;
+  } @else if $type == "left" {
+    border-top: $size solid transparent;
+    border-bottom: $size solid transparent;
+    border-right: $size solid $color;
+  } @else if $type == "right" {
+    border-top: $size solid transparent;
+    border-bottom: $size solid transparent;
+    border-left: $size solid $color;
+  }
 }
-
-
-
-
-
 
 /* 
 ******************************************************************
@@ -171,13 +152,8 @@ xsmall - Smartphones Mobiles
 ******************************************************************
 */
 @mixin text-select-off {
-    user-select: none;
+  user-select: none;
 }
-
-
-
-
-
 
 /* 
 ******************************************************************
@@ -185,17 +161,12 @@ xsmall - Smartphones Mobiles
 ******************************************************************
 */
 @mixin toggle-list-style($flag: true) {
-    @if $flag {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-    }
-    
+  @if $flag {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
 }
-
-
-
-
 
 /* 
 ******************************************************************
@@ -203,16 +174,15 @@ xsmall - Smartphones Mobiles
 ******************************************************************
 */
 @mixin abs-center {
-	position: absolute;
-	margin: auto;
-	top: 0;
-	left: 0;
-	bottom: 0;
-    right: 0;
-    min-height: 1px;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  min-height: 1px;
 }
 
-
 @mixin flex-center {
-	align-self: center;
+  align-self: center;
 }
